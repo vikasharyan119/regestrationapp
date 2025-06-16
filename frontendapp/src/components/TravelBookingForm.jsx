@@ -56,7 +56,7 @@ const TravelBookingForm = () => {
         };
 
         try {
-            const response = await fetch('https://signupbackend.azurewebsites.net/travel-booking', {
+            const response = await fetch('http://localhost:3000/travel-booking', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'
