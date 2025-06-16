@@ -125,3 +125,14 @@ app.post('/login', async (req, res) => {
     res.status(500).json({ message: 'Internal server error' });
   }
 });
+
+// Add this to your Express server
+app.post('/travel-booking', async (req, res) => {
+  try {
+    const booking = await TravelBooking.create(req.body);
+    res.status(201).json({ message: 'Booking successful', booking });
+  } catch (error) {
+    console.error('Travel booking error:', error);
+    res.status(500).json({ message: 'Internal server error' });
+  }
+});
