@@ -98,3 +98,30 @@ app.post('/signup', async (req, res) => {
     res.status(500).json({ message: 'Internal server error' });
   }
 });
+
+app.post('/login', async (req, res) => {
+  const { email, password } = req.body;
+
+  if (!email || !password) {
+    return res.status(400).json({ message: 'Email and password are required' });
+  }
+
+  try {
+    const user = await User.findOne({ email });
+
+    if (!user || user.password !== password) {
+      return res.status(401).json({ message: 'Invalid email or password' });
+    }
+
+    const token = jwt.sign(
+      { userId: user._id, email: user.email, firstname: user.firstname },
+      JWT_SECRET,
+      { expiresIn: '1h' }
+    );
+
+    res.json({ message: 'Login successful', token, user });
+  } catch (error) {
+    console.error('Login error:', error);
+    res.status(500).json({ message: 'Internal server error' });
+  }
+});
