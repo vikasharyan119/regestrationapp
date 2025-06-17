@@ -8,7 +8,7 @@ import Header from './components/Header';
 function App() {
   return (
     
-    <Router basename="/regestrationapp">
+    <Router>
       <Header />
       <div className="mt-4">
         <Routes>
