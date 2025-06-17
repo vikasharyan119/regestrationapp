@@ -6,6 +6,16 @@ const jwt = require('jsonwebtoken');
 const app = express();
 app.use(cors());
 app.use(express.json());
+// ... all other app.use and routes
+
+app.get('/', (req, res) => {
+  res.send('Backend is running 🎉');
+});
+
+app.listen(port, () => {
+  console.log(`Server started on port ${port}`);
+});
+
 
 const port = process.env.PORT || 3000;
 app.listen(port, () => {
