@@ -11,10 +11,11 @@ const port = process.env.PORT || 3000;
 app.listen(port, () => {
   console.log(`Server started on port ${port}`);
 });
-const JWT_SECRET = 'mySuperSecretKey123';
+const JWT_SECRET = process.env.JWT_SECRET;
 
 // ✅ MongoDB connection
-const mongoURI = 'mongodb://localhost:27017/signupdb'; // or your Atlas URI
+const mongoURI = process.env.MONGO_URI;
+// or your Atlas URI
 mongoose.connect(mongoURI, {
   useNewUrlParser: true,
   useUnifiedTopology: true
