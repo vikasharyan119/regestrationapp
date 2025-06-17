@@ -38,13 +38,9 @@ const LoginSignupForm = () => {
         }
 
         try {
-           const API_URL = import.meta.env.VITE_API_URL;
-
-                const url = isLogin
-            ? `${API_URL}/api/login`
-            : `${API_URL}/api/signup`;
-
-
+         const url = isLogin
+        ? 'http://localhost:3000/login'
+        : 'http://localhost:3000/signup';
 
             const payload = isLogin
                 ? { email: formData.email, password: formData.password }

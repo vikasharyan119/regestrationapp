@@ -6,25 +6,17 @@ const jwt = require('jsonwebtoken');
 const app = express();
 app.use(cors());
 app.use(express.json());
-// ... all other app.use and routes
 
-app.get('/', (req, res) => {
-  res.send('Backend is running 🎉');
-});
-
-app.listen(port, () => {
-  console.log(`Server started on port ${port}`);
-});
 
 
 const port = process.env.PORT || 3000;
 app.listen(port, () => {
   console.log(`Server started on port ${port}`);
 });
-const JWT_SECRET = process.env.JWT_SECRET;
+const JWT_SECRET='mySuperSecretKey123'
 
 // ✅ MongoDB connection
-const mongoURI = process.env.MONGO_URI;
+const mongoURI = 'mongodb://localhost:27017/signupdb';
 // or your Atlas URI
 mongoose.connect(mongoURI, {
   useNewUrlParser: true,
