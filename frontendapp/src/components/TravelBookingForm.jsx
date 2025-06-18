@@ -56,8 +56,8 @@ const TravelBookingForm = () => {
         };
 
         try {
-            const response  = await fetch('http://localhost:3000/travel-booking',{
-                method:'POST',
+            const response = await fetch('http://localhost:3000/travel-booking', {
+                method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'
                 },
@@ -260,7 +260,7 @@ const TravelBookingForm = () => {
                 <div>
                     <label className="block font-medium mb-1">Meal Preference</label>
                     <div className="flex gap-4 mt-1">
-                        {['Vegetarian', 'Non-Vegetarian', 'Vegan', 'No Meal'].map((option) => (
+                        {['Vegetarian', 'Non-Vegetarian',  ].map((option) => (
                             <label key={option} className="inline-flex items-center gap-2">
                                 <input
                                     type="radio"

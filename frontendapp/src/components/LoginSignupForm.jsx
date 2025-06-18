@@ -38,9 +38,9 @@ const LoginSignupForm = () => {
         }
 
         try {
-         const url = isLogin
-        ? 'http://localhost:3000/login'
-        : 'http://localhost:3000/signup';
+            const url = isLogin
+                ? 'http://localhost:3000/login'
+                : 'http://localhost:3000/signup';
 
             const payload = isLogin
                 ? { email: formData.email, password: formData.password }
